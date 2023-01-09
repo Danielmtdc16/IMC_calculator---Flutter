@@ -50,12 +50,23 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void resetAll(){
+    setState(() {
+      heightController.text = "";
+      weightController.text = "";
+      result = "Informe seus Dados!";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Caluladora de IMC"),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: resetAll, icon: const Icon(Icons.refresh))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(right: 20, left: 20, top: 40),
