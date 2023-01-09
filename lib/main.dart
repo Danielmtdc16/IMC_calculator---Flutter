@@ -15,10 +15,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  final String result = "Informe seus Dados!";
+  String result = "Informe seus Dados!";
 
   final heightController = TextEditingController();
   final weightController = TextEditingController();
+
+  void calculate(){
+    double height = double.parse(heightController.text)/100;
+    double weight = double.parse(heightController.text);
+
+    setState(() {
+      result = (weight / (height * height)).toStringAsFixed(2);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +46,7 @@ class _MyAppState extends State<MyApp> {
             buildTextField("Peso", "kg", weightController),
             const SizedBox(height: 20,),
             ElevatedButton(
-                onPressed: (){},
+                onPressed: calculate,
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(0, 50)
                 ),
