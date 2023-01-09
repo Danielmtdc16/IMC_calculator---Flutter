@@ -30,7 +30,13 @@ class _MyAppState extends State<MyApp> {
             const SizedBox(height: 20,),
             buildTextField("Peso", "kg"),
             const SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){}, child: const Text("Calcular"))
+            ElevatedButton(
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(0, 50)
+                ),
+                child: const Text("Calcular", style: TextStyle(fontSize: 19),)
+            ),
           ],
         ),
       ),
