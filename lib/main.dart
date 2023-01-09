@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   void calculate(){
     double height = double.parse(heightController.text)/100;
-    double weight = double.parse(heightController.text);
+    double weight = double.parse(weightController.text);
 
     setState(() {
       double imc = weight / (height * height);
