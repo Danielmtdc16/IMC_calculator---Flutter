@@ -1,4 +1,4 @@
-# imc2
+# IMC calulator
 
 A new Flutter project.
 
