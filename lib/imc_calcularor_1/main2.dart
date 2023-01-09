@@ -86,7 +86,7 @@ class _MyAppState extends State<MyApp> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(0, 50)
+                      fixedSize: const Size(0, 50)
                   ),
                   child: const Text("Calcular", style: TextStyle(fontSize: 19),)
               ),
@@ -94,14 +94,14 @@ class _MyAppState extends State<MyApp> {
               Container(
                 height: 50,
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.blue
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.blue
                 ),
                 child: Center(child: Text(result,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 19
+                      color: Colors.white,
+                      fontSize: 19
                   ),),
                 ),
               )
