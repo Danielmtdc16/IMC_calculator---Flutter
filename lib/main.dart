@@ -37,6 +37,15 @@ class _MyAppState extends State<MyApp> {
                 ),
                 child: const Text("Calcular", style: TextStyle(fontSize: 19),)
             ),
+            const SizedBox(height: 20,),
+            Container(
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Colors.blue
+              ),
+              child: Center(child: Text("resultado", textAlign: TextAlign.center,)),
+            )
           ],
         ),
       ),
