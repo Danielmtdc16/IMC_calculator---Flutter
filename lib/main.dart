@@ -21,6 +21,17 @@ class _MyAppState extends State<MyApp> {
         title: const Text("Caluladora de IMC"),
         centerTitle: true,
       ),
+      body: Padding(
+        padding: const EdgeInsets.only(right: 20, left: 20, top: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(),
+            TextField(),
+            ElevatedButton(onPressed: (){}, child: Text("Calcular"))
+          ],
+        ),
+      ),
     );
   }
 }
