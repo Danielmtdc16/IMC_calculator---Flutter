@@ -69,7 +69,11 @@ class _MyAppState extends State<MyApp> {
               buildTextField("Peso", "kg", weightController),
               const SizedBox(height: 20,),
               ElevatedButton(
-                  onPressed: calculate,
+                  onPressed: (){
+                    if (_formkey.currentState!.validate()){
+                      calculate();
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     fixedSize: const Size(0, 50)
                   ),
@@ -107,5 +111,15 @@ Widget buildTextField(String labelText, String suffixText, TextEditingController
       border: const OutlineInputBorder(),
     ),
     keyboardType: TextInputType.number,
+    validator: (value){
+      if (value == null || value.isEmpty){
+        if (labelText == "Altura"){
+          return "Informe sua Altura!";
+        } else {
+          return "Informe seu Peso!";
+        }
+      }
+      return null;
+    },
   );
 }
