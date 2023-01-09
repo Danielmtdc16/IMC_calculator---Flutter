@@ -26,8 +26,22 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(),
-            TextField(),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Altura",
+                suffixText: "cm",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20,),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Peso",
+                suffixText: "kg",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20,),
             ElevatedButton(onPressed: (){}, child: Text("Calcular"))
           ],
         ),
