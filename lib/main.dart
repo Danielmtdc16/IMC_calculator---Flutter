@@ -26,26 +26,24 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Altura",
-                suffixText: "cm",
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 20,),
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Peso",
-                suffixText: "kg",
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){}, child: Text("Calcular"))
+            buildTextField("Altura", "cm"),
+            const SizedBox(height: 20,),
+            buildTextField("Peso", "kg"),
+            const SizedBox(height: 20,),
+            ElevatedButton(onPressed: (){}, child: const Text("Calcular"))
           ],
         ),
       ),
     );
   }
+}
+
+Widget buildTextField(String labelText, String suffixText){
+  return TextField(
+    decoration: InputDecoration(
+      labelText: labelText,
+      suffixText: suffixText,
+      border: const OutlineInputBorder(),
+    ),
+  );
 }
