@@ -14,6 +14,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  final String result = "Informe seus Dados!";
+
+  final heightController = TextEditingController();
+  final weightController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +32,9 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            buildTextField("Altura", "cm"),
+            buildTextField("Altura", "cm", heightController),
             const SizedBox(height: 20,),
-            buildTextField("Peso", "kg"),
+            buildTextField("Peso", "kg", weightController),
             const SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: (){},
@@ -40,11 +46,17 @@ class _MyAppState extends State<MyApp> {
             const SizedBox(height: 20,),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 color: Colors.blue
               ),
-              child: Center(child: Text("resultado", textAlign: TextAlign.center,)),
+              child: Center(child: Text(result,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 19
+                ),),
+              ),
             )
           ],
         ),
@@ -53,12 +65,14 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-Widget buildTextField(String labelText, String suffixText){
+Widget buildTextField(String labelText, String suffixText, TextEditingController controller){
   return TextField(
+    controller: controller,
     decoration: InputDecoration(
       labelText: labelText,
       suffixText: suffixText,
       border: const OutlineInputBorder(),
     ),
+    keyboardType: TextInputType.number,
   );
 }
