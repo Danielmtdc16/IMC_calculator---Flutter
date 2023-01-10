@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'cartao.dart';
 import 'conteudo_icone.dart';
+import 'constantes.dart';
 
-const Color corAtivaCartao = Color(0xFF9E9E9E);
-const Color corContainerInferior = Color(0xFFFF5822);
-const double alturaContainerInferior = 80.0;
+enum Sexo {
+  masculino,
+  feminino,
+}
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({Key? key}) : super(key: key);
@@ -15,6 +17,10 @@ class TelaPrincipal extends StatefulWidget {
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
+
+  Sexo? sexoSelecionado;
+  int altura = 180;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +29,33 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(child: Row(
-            children: const [
+            children: [
               Expanded(child: Cartao(
-                  cor: corAtivaCartao,
-                  filhoCard: ConteudoIcone(
+                  aoPressionar: (){
+                    setState(() {
+                      sexoSelecionado = Sexo.masculino;
+                    });
+                  },
+                  cor: sexoSelecionado == Sexo.masculino
+                      ? kcorAtivaCartao : kcorInativaCartao,
+                  filhoCard: const ConteudoIcone(
                       icone: FontAwesomeIcons.mars,
                       descricao: "MASCULINO",
                   ),
                 ),
               ),
               Expanded(child: Cartao(
-                  cor: corAtivaCartao,
-                  filhoCard: ConteudoIcone(
+                aoPressionar: () {
+                  setState(() {
+                    sexoSelecionado = Sexo.feminino;
+                  });
+                },
+                  cor: sexoSelecionado == Sexo.feminino
+                      ? kcorAtivaCartao : kcorInativaCartao,
+                  filhoCard: const ConteudoIcone(
                     icone: FontAwesomeIcons.venus,
                     descricao: "FEMININO",
                   ),
@@ -45,31 +64,55 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             ],
           ),),
           Expanded(child: Cartao(
-            cor: corAtivaCartao,
+            aoPressionar: (){},
+            cor: kcorAtivaCartao,
             filhoCard: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("asdasd")
+                Text("ALTURA", style: kdescricaoTextStyle,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(altura.toString(), style: knumeroTextStyle),
+                    Text("cm", style: kdescricaoTextStyle,)
+                  ],
+                ),
+                Slider(
+                    activeColor: kcorContainerInferior,
+                    inactiveColor: kcorInativaCartao,
+                    value: altura.toDouble(),
+                    min: 120,
+                    max: 220,
+                    onChanged: (double value){
+                      setState(() {
+                        altura = value.round();
+                      });
+                    },
+                ),
               ],
             ),
           )),
           Expanded(child: Row(
             children: [
               Expanded(child: Cartao(
-                cor: corAtivaCartao,
+                  aoPressionar: (){},
+                cor: kcorAtivaCartao,
                   filhoCard: Text("")
               )),
               Expanded(child: Cartao(
-                cor: corAtivaCartao,
+                  aoPressionar: (){},
+                cor: kcorAtivaCartao,
                   filhoCard: Text("")
               )),
             ],
           )),
           Container(
-            color: corContainerInferior,
+            color: kcorContainerInferior,
             margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: alturaContainerInferior,
+            height: kalturaContainerInferior,
           )
         ],
       ),
