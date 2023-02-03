@@ -17,9 +17,10 @@ class TelaPrincipal extends StatefulWidget {
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
-
   Sexo? sexoSelecionado;
   int altura = 180;
+  int peso = 60;
+  int idade = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -31,86 +32,174 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(child: Row(
-            children: [
-              Expanded(child: Cartao(
-                  aoPressionar: (){
-                    setState(() {
-                      sexoSelecionado = Sexo.masculino;
-                    });
-                  },
-                  cor: sexoSelecionado == Sexo.masculino
-                      ? kcorAtivaCartao : kcorInativaCartao,
-                  filhoCard: const ConteudoIcone(
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Cartao(
+                    aoPressionar: () {
+                      setState(() {
+                        sexoSelecionado = Sexo.masculino;
+                      });
+                    },
+                    cor: sexoSelecionado == Sexo.masculino
+                        ? kcorAtivaCartao
+                        : kcorInativaCartao,
+                    filhoCard: const ConteudoIcone(
                       icone: FontAwesomeIcons.mars,
                       descricao: "MASCULINO",
+                    ),
                   ),
                 ),
-              ),
-              Expanded(child: Cartao(
-                aoPressionar: () {
-                  setState(() {
-                    sexoSelecionado = Sexo.feminino;
-                  });
-                },
-                  cor: sexoSelecionado == Sexo.feminino
-                      ? kcorAtivaCartao : kcorInativaCartao,
-                  filhoCard: const ConteudoIcone(
-                    icone: FontAwesomeIcons.venus,
-                    descricao: "FEMININO",
+                Expanded(
+                  child: Cartao(
+                    aoPressionar: () {
+                      setState(() {
+                        sexoSelecionado = Sexo.feminino;
+                      });
+                    },
+                    cor: sexoSelecionado == Sexo.feminino
+                        ? kcorAtivaCartao
+                        : kcorInativaCartao,
+                    filhoCard: const ConteudoIcone(
+                      icone: FontAwesomeIcons.venus,
+                      descricao: "FEMININO",
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),),
-          Expanded(child: Cartao(
-            aoPressionar: (){},
-            cor: kcorAtivaCartao,
-            filhoCard: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("ALTURA", style: kdescricaoTextStyle,),
-                Row(
+              ],
+            ),
+          ),
+          Expanded(
+              child: Cartao(
+                cor: kcorAtivaCartao,
+                filhoCard: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Text(altura.toString(), style: knumeroTextStyle),
-                    Text("cm", style: kdescricaoTextStyle,)
-                  ],
-                ),
-                Slider(
+                    const Text(
+                      "ALTURA",
+                      style: kdescricaoTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(altura.toString(), style: knumeroTextStyle),
+                        const Text(
+                          "cm",
+                          style: kdescricaoTextStyle,
+                        )
+                      ],
+                    ),
+                  Slider(
                     activeColor: kcorContainerInferior,
                     inactiveColor: kcorInativaCartao,
                     value: altura.toDouble(),
                     min: 120,
                     max: 220,
-                    onChanged: (double value){
+                    onChanged: (double value) {
                       setState(() {
                         altura = value.round();
                       });
                     },
-                ),
-              ],
-            ),
-          )),
-          Expanded(child: Row(
-            children: [
-              Expanded(child: Cartao(
-                  aoPressionar: (){},
-                cor: kcorAtivaCartao,
-                  filhoCard: Text("")
-              )),
-              Expanded(child: Cartao(
-                  aoPressionar: (){},
-                cor: kcorAtivaCartao,
-                  filhoCard: Text("")
-              )),
-            ],
-          )),
+                  ),
+                ],
+              ),
+          ),),
+          Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Cartao(
+                          cor: kcorAtivaCartao,
+                          filhoCard: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "PESO",
+                                style: kdescricaoTextStyle,
+                              ),
+                              Text(
+                                peso.toString(),
+                                style: knumeroTextStyle,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  BotaoArredondado(
+                                    icone: FontAwesomeIcons.minus,
+                                    aoPressionar: (){
+                                      setState(() {
+                                        peso--;
+                                      });
+                                    },
+                                  ),
+
+                                  const SizedBox(width: 10,),
+
+                                  BotaoArredondado(
+                                    icone: FontAwesomeIcons.plus,
+                                    aoPressionar: (){
+                                      setState(() {
+                                        peso++;
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                      ),
+                  ),
+                  Expanded(
+                      child: Cartao(
+                          cor: kcorAtivaCartao,
+                          filhoCard: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                  "IDADE",
+                                  style: kdescricaoTextStyle,
+                              ),
+                              Text(
+                                idade.toString(),
+                                style: knumeroTextStyle,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  BotaoArredondado(
+                                      icone: FontAwesomeIcons.minus,
+                                      aoPressionar: (){
+                                        setState(() {
+                                          idade--;
+                                        });
+                                      }
+                                  ),
+
+                                  const SizedBox(width: 10,),
+
+                                  BotaoArredondado(
+                                      icone: FontAwesomeIcons.plus,
+                                      aoPressionar: (){
+                                        setState(() {
+                                          idade++;
+                                        });
+                                      }
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                      ),
+                  ),
+                ],
+              )
+          ),
           Container(
             color: kcorContainerInferior,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: kalturaContainerInferior,
           )
@@ -120,3 +209,25 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   }
 }
 
+class BotaoArredondado extends StatelessWidget {
+
+  const BotaoArredondado({Key? key, required this.icone, required this.aoPressionar}) : super(key: key);
+
+  final IconData icone;
+  final VoidCallback aoPressionar;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: aoPressionar,
+      elevation: 6,
+      shape: const CircleBorder(),
+      fillColor: kcorDeFundo,
+      constraints: const BoxConstraints.tightFor(
+          height: 56.0,
+          width: 56.0,
+      ),
+      child: Icon(icone),
+    );
+  }
+}

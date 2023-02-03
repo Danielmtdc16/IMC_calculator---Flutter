@@ -4,9 +4,9 @@ class Cartao extends StatelessWidget {
 
   final Color cor;
   final Widget filhoCard;
-  final VoidCallback aoPressionar;
+  final VoidCallback? aoPressionar;
 
-  const Cartao({Key? key, required this.cor, required this.filhoCard, required this.aoPressionar}) : super(key: key);
+  const Cartao({Key? key, required this.cor, required this.filhoCard, this.aoPressionar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
