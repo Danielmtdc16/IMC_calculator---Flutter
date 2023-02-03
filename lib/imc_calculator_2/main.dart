@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imc2/imc_calculator_2/tela_resultados.dart';
-import 'tela_principal.dart';
+import 'package:imc2/imc_calculator_2/telas/tela_resultados.dart';
+import 'telas/tela_principal.dart';
 import 'constantes.dart';
 
 void main(){

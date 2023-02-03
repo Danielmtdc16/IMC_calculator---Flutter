@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imc2/imc_calculator_2/constantes.dart';
-import 'cartao.dart';
-import 'botao_inferior.dart';
+import '../widgets/cartao.dart';
+import '../widgets/botao_inferior.dart';
 
 class TelaResultados extends StatelessWidget {
 

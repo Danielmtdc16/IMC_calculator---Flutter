@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:imc2/imc_calculator_2/tela_resultados.dart';
-import 'botao_inferior.dart';
-import 'cartao.dart';
-import 'conteudo_icone.dart';
-import 'constantes.dart';
-import 'calculadora_imc.dart';
+import 'package:imc2/imc_calculator_2/telas/tela_resultados.dart';
+import '../widgets/botao_arredondado.dart';
+import '../widgets/botao_inferior.dart';
+import '../widgets/cartao.dart';
+import '../widgets/conteudo_icone.dart';
+import '../constantes.dart';
+import '../models/calculadora_imc.dart';
 
 enum Sexo {
   masculino,
@@ -228,26 +229,3 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 }
 
 
-
-class BotaoArredondado extends StatelessWidget {
-
-  const BotaoArredondado({Key? key, required this.icone, required this.aoPressionar}) : super(key: key);
-
-  final IconData icone;
-  final VoidCallback aoPressionar;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: aoPressionar,
-      elevation: 6,
-      shape: const CircleBorder(),
-      fillColor: kcorDeFundo,
-      constraints: const BoxConstraints.tightFor(
-          height: 56.0,
-          width: 56.0,
-      ),
-      child: Icon(icone),
-    );
-  }
-}
