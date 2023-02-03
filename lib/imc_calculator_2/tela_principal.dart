@@ -197,11 +197,18 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 ],
               )
           ),
-          Container(
-            color: kcorContainerInferior,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kalturaContainerInferior,
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, '/segunda');
+            },
+            child: Container(
+              color: kcorContainerInferior,
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kalturaContainerInferior,
+              alignment: Alignment.center,
+              child: const Text("CALCULAR", style: TextStyle(color: Colors.white, fontSize: 30),),
+            ),
           )
         ],
       ),

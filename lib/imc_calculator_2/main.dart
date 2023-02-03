@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:imc2/imc_calculator_2/tela_resultados.dart';
 import 'tela_principal.dart';
 import 'constantes.dart';
+
 void main(){
   runApp(MyApp());
 }
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
         primaryColor: kcorDeFundo,
         scaffoldBackgroundColor: kcorDeFundo
       ),
-      home: TelaPrincipal(),
+      routes: {
+        '/primeira' : (context) => TelaPrincipal(),
+        '/segunda' : (context) => TelaResultados(),
+      },
+      initialRoute: '/primeira',
     );
   }
 }
