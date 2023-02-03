@@ -7,5 +7,5 @@ const Color kcorDeFundo = Color(0xFF616161);
 
 const double kalturaContainerInferior = 80.0;
 const TextStyle kdescricaoTextStyle = TextStyle(fontSize: 20, color: Colors.black);
-const TextStyle knumeroTextStyle = TextStyle(fontSize: 40, fontWeight: FontWeight.w900);
+const TextStyle knumeroTextStyle = TextStyle(fontSize: 50, fontWeight: FontWeight.w900);
 
