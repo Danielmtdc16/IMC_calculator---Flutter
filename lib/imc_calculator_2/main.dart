@@ -17,11 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kcorDeFundo,
         scaffoldBackgroundColor: kcorDeFundo
       ),
-      routes: {
-        '/primeira' : (context) => TelaPrincipal(),
-        '/segunda' : (context) => TelaResultados(),
-      },
-      initialRoute: '/primeira',
+      home: TelaPrincipal(),
     );
   }
 }
