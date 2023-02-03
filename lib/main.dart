@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:imc2/imc_calculator_2/telas/tela_resultados.dart';
-import 'telas/tela_principal.dart';
-import 'constantes.dart';
+import 'package:imc2/tela_exibicao.dart';
+import 'imc_calculator_2/constantes.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kcorDeFundo,
         scaffoldBackgroundColor: kcorDeFundo
       ),
-      home: TelaPrincipal(),
+      home: const TelaExibicao(),
     );
   }
 }

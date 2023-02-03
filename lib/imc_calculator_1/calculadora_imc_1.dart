@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: MyApp(),
-  ));
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Calculadora1 extends StatefulWidget {
+  const Calculadora1({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Calculadora1> createState() => _Calculadora1State();
 }
 
-class _MyAppState extends State<MyApp> {
+class _Calculadora1State extends State<Calculadora1> {
 
   String result = "Informe seus Dados!";
 
